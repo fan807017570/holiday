@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxzh.kjc.holiday.dao.IRecordDao">
+	<!-- <resultMap type="com.zxzh.kjc.holiday.entitiy.REntity" id="user"> <result 
+		property="userName" column="name" jdbcType="VARCHAR" /> <result property="userId" 
+		column="id" jdbcType="INTEGER" /> <result property="realName" column="name" 
+		jdbcType="VARCHAR" /> <result property="telNumber" column="telnumber" jdbcType="VARCHAR" 
+		/> <result property="idCard" column="idCard" jdbcType="INTEGER" /> <result 
+		property="departmentId" column="department_id" jdbcType="INTEGER" /> <result 
+		property="sex" column="sex" jdbcType="VARCHAR" /> <result property="isMarry" 
+		column="ismarry" jdbcType="INTEGER" /> <result property="isaLive" column="islive_id" 
+		jdbcType="INTEGER" /> <result property="age" column="age" jdbcType="INTEGER" 
+		/> <result property="hireDate" column="hiredate" jdbcType="TIMESTAMP" /> 
+		<result property="location" column="location" jdbcType="INTEGER" /> <result 
+		property="passWord" column="password" jdbcType="INTEGER" /> </resultMap> -->
+	<insert id="addRecord" parameterType="com.zxzh.kjc.holiday.entitiy.RecordEntity">
+		insert into record(
+		userId,
+		vid,
+		duration,
+		startDate,
+		endDate,
+		commitTime,
+		orderTime,
+		status,
+		createTime
+		)
+		values
+		(
+		#{userId},
+		#{vid},
+		#{duration},
+		#{start},
+		#{end},
+		#{commitTime},
+		#{orderTime},
+		#{status},
+		now()
+		)
+	</insert>
+	<update id="updateStatus">
+		update record 
+		set status = #{status} 
+		where recordId = #{recordId} 
+	</update>
+	
+</mapper>

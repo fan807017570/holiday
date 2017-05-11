@@ -1,0 +1,225 @@
+﻿$axure.loadCurrentPage({
+  "url":"login.html",
+  "generationDate":new Date(1493908451341.72),
+  "isCanvasEnabled":false,
+  "variables":["OnLoadVariable"],
+  "page":{
+    "packageId":"e6e03e22d4334ed3886fe88665757097",
+    "type":"Axure:Page",
+    "name":"login",
+    "notes":{
+},
+    "style":{
+      "baseStyle":"627587b6038d43cca051c114ac41ad32",
+      "pageAlignment":"near",
+      "fill":{
+        "fillType":"solid",
+        "color":0xFFFFFFFF},
+      "image":null,
+      "imageHorizontalAlignment":"near",
+      "imageVerticalAlignment":"near",
+      "imageRepeat":"auto",
+      "favicon":null,
+      "sketchFactor":"0",
+      "colorStyle":"appliedColor",
+      "fontName":"应用字体",
+      "borderWidth":"0"},
+    "adaptiveStyles":{
+},
+    "interactionMap":{
+},
+    "diagram":{
+      "objects":[{
+          "id":"d00056771d084bd59e6b496aae676f71",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":480,
+              "y":140},
+            "size":{
+              "width":220,
+              "height":150}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"3740ba7895404c81b0981463070a3413",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "location":{
+                  "x":480,
+                  "y":140},
+                "size":{
+                  "width":220,
+                  "height":150}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/login/u0.png"}},
+{
+          "id":"de4b1dab1aea4a5e975fa617c3660704",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"paragraph",
+          "visible":true,
+          "style":{
+            "horizontalAlignment":"right",
+            "location":{
+              "x":504,
+              "y":168},
+            "size":{
+              "width":60,
+              "height":16}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"ddb1c2bf817f45b4bb2bed8c0806cf65",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"right",
+                "location":{
+                  "x":504,
+                  "y":168},
+                "size":{
+                  "width":60,
+                  "height":16}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"resources/images/transparent.gif"}},
+{
+          "id":"a5f8e18e3e7e42d29881bb6f00d82055",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"paragraph",
+          "visible":true,
+          "style":{
+            "horizontalAlignment":"right",
+            "location":{
+              "x":504,
+              "y":208},
+            "size":{
+              "width":60,
+              "height":16}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"a7fa02b107da4e50940fac49cf166e06",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "horizontalAlignment":"right",
+                "location":{
+                  "x":504,
+                  "y":208},
+                "size":{
+                  "width":60,
+                  "height":16}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"resources/images/transparent.gif"}},
+{
+          "id":"c66697e027d64564a2b60291b87ff961",
+          "label":"",
+          "type":"button",
+          "styleType":"button",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":518,
+              "y":248},
+            "size":{
+              "width":46,
+              "height":25}},
+          "adaptiveStyles":{
+}},
+{
+          "id":"6bb0b260151244a9a7095766a593877f",
+          "label":"",
+          "type":"button",
+          "styleType":"button",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":624,
+              "y":248},
+            "size":{
+              "width":56,
+              "height":25}},
+          "adaptiveStyles":{
+},
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"用例 1",
+                  "isNewIfGroup":false,
+                  "actions":[]}]}},
+          "tabbable":true},
+{
+          "id":"c0f6c496c83a439cb205651fd8fd85c7",
+          "label":"",
+          "type":"textBox",
+          "styleType":"textBox",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":564,
+              "y":168},
+            "size":{
+              "width":116,
+              "height":25}},
+          "adaptiveStyles":{
+}},
+{
+          "id":"a662e1ba097a4c4e9bde4b86e3d0589e",
+          "label":"",
+          "type":"textBox",
+          "styleType":"textBox",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":564,
+              "y":208},
+            "size":{
+              "width":116,
+              "height":25}},
+          "adaptiveStyles":{
+}}]}},
+  "masters":{
+},
+  "objectPaths":{
+    "d00056771d084bd59e6b496aae676f71":{
+      "scriptId":"u0"},
+    "3740ba7895404c81b0981463070a3413":{
+      "scriptId":"u1"},
+    "de4b1dab1aea4a5e975fa617c3660704":{
+      "scriptId":"u2"},
+    "ddb1c2bf817f45b4bb2bed8c0806cf65":{
+      "scriptId":"u3"},
+    "a5f8e18e3e7e42d29881bb6f00d82055":{
+      "scriptId":"u4"},
+    "a7fa02b107da4e50940fac49cf166e06":{
+      "scriptId":"u5"},
+    "c66697e027d64564a2b60291b87ff961":{
+      "scriptId":"u6"},
+    "6bb0b260151244a9a7095766a593877f":{
+      "scriptId":"u7"},
+    "c0f6c496c83a439cb205651fd8fd85c7":{
+      "scriptId":"u8"},
+    "a662e1ba097a4c4e9bde4b86e3d0589e":{
+      "scriptId":"u9"}}});

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxzh.kjc.holiday.dao.IEnvoationDao">
+	<resultMap type="com.zxzh.kjc.holiday.entitiy.pojo.EnvocationPojo"
+		id="vocationList">
+		<result property="vocationName" column="vocationName"></result>
+		<association property="envocation" javaType="com.zxzh.kjc.holiday.entitiy.EnvacationEntity">
+			<result property="userId" column="userId" />
+			<result property="vocationId" column="vocationId" />
+			<result property="term" column="term" />
+			<result property="ownYear" column="ownYear" />
+			<result property="balanceTime" column="balanceTime" />
+		</association>
+	</resultMap>
+	<select id="queryVocation" resultType="com.zxzh.kjc.holiday.entitiy.EnvacationEntity">
+		select
+		userid as userId,
+		vocationid as vocationId,
+		term as term,
+		ownyear as ownYear,
+		balanceTime
+		as balanceTime
+		from envocation
+		where userid = #{userId} and
+		vocationid=#{vocationId}
+	</select>
+	<select id="queryByUserId" resultType="com.zxzh.kjc.holiday.entitiy.EnvacationEntity">
+		select
+		userid as userId,
+		vocationid as vocationId,
+		term as term,
+		ownyear as ownYear,
+		balanceTime
+		as balanceTime
+		from envocation
+		where userid = #{userId}
+	</select>
+	<select id="queryVocationList" resultMap="vocationList">
+		select
+		v.name as vocationName,
+		e.userid as userId,
+		e.vocationid as vocationId,
+		e.term as term,
+		e.ownyear as ownYear,
+		e.balanceTime as balanceTime
+		from
+		envocation e join vacation v
+		where e.userid=#{userId} and
+		e.vocationid=v.id
+	</select>
+</mapper>

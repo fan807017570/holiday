@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxzh.kjc.holiday.dao.IUserDao">
+	<resultMap type="com.zxzh.kjc.holiday.domain.UserBean" id="user">
+		<result property="userName" column="name" jdbcType="VARCHAR" />
+		<result property="userId" column="id" jdbcType="INTEGER" />
+		<result property="passwd" column="password" jdbcType="VARCHAR" />
+		<result property="flag" column="isadmin" jdbcType="INTEGER" />
+	</resultMap>
+
+	<!-- 根据id获取橙e券分类 -->
+	<select id="getUserById" parameterType="int" resultMap="user">
+		select *
+		from user where id = #{userId}
+	</select>
+</mapper>
