@@ -28,4 +28,10 @@ public class ViewController {
 		ModelAndView view = new ModelAndView("login");
 		return view;
 	}
+
+	@RequestMapping("/forLeave")
+	public ModelAndView forLeave() {
+		ModelAndView view = new ModelAndView("forLeave");
+		return view;
+	}
 }
