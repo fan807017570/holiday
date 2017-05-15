@@ -2,7 +2,7 @@ package com.zxzh.kjc.holiday.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
@@ -17,6 +17,7 @@ import com.zxzh.kjc.holiday.entitiy.UserEntity;
 import com.zxzh.kjc.holiday.entitiy.pojo.EnvocationPojo;
 import com.zxzh.kjc.holiday.service.facade.IUserService;
 import com.zxzh.kjc.holiday.service.facade.IVocationRecordService;
+import com.zxzh.kjc.holiday.service.impl.SessionService;
 
 @RestController
 @RequestMapping("/user")
@@ -25,9 +26,11 @@ public class UserController {
 	private IUserService userService;
 	@Autowired
 	private IVocationRecordService vocationRecordService;
+	@Autowired
+	private SessionService sessionService;
 
 	@RequestMapping(value = "/dologin", method = RequestMethod.GET)
-	public ModelAndView login(HttpSession sessoin, @RequestParam("username") String userName,
+	public ModelAndView login(HttpServletRequest req, @RequestParam("username") String userName,
 			@RequestParam("passwd") String passwd, ModelMap model) {
 		UserEntity user = new UserEntity();
 		user.setUserName(userName);
@@ -41,6 +44,7 @@ public class UserController {
 			model.addAttribute("userVocation", vocationList);
 			model.addAttribute("userInfo", userInfo);
 			view = new ModelAndView("/vocationinfo", model);
+			sessionService.getUserInfoFromSession(req);
 		} else if (status == LOGINSTATUS.PASSWDERROR) {
 			model.addAttribute("msg", "密码错误");
 			view = new ModelAndView("/error", model);
@@ -50,9 +54,9 @@ public class UserController {
 		}
 		return view;
 	}
+
 	@RequestMapping("/forLeave")
-	public ModelAndView forLeave()
-	{
+	public ModelAndView forLeave() {
 		return null;
 	}
 }
