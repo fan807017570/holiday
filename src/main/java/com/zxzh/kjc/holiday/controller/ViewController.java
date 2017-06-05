@@ -2,12 +2,12 @@ package com.zxzh.kjc.holiday.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -23,6 +23,7 @@ import com.zxzh.kjc.holiday.service.impl.SessionService;
 public class ViewController {
 	@Autowired
 	private IEnvoationDao envoationDao;
+
 	@Autowired
 	private SessionService sessionService;
 	@Autowired
@@ -35,10 +36,10 @@ public class ViewController {
 		return "hello world!";
 	}
 
-	@RequestMapping("/login")
-	public ModelAndView login(HttpServletRequest req, ModelMap model) {
-		HttpSession session = req.getSession();
-		UserEntity userInfo = sessionService.getUserInfoFromSession(req);
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public ModelAndView login(HttpSession session, ModelMap model) {
+//		HttpSession session = req.getSession();
+		UserEntity userInfo = sessionService.getUserInfoFromSession(session);
 		ModelAndView view = null;
 		if (session == null || userInfo == null) {
 			view = new ModelAndView("login");
@@ -51,7 +52,16 @@ public class ViewController {
 		}
 		return view;
 	}
-
+	@RequestMapping("forwordTo")
+	public ModelAndView forward(UserEntity user,ModelMap model)
+	{
+		int uId = user.getUserId();
+		List<EnvocationPojo> vocationList = vocationRecordService.queryVocationListByUser(uId);
+		model.addAttribute("userVocation", vocationList);
+		model.addAttribute("userInfo", user);
+		return null;
+		
+	}
 	@RequestMapping("/forLeave")
 	public ModelAndView forLeave() {
 		ModelAndView view = new ModelAndView("forLeave");

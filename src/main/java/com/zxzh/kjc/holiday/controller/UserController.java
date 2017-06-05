@@ -3,6 +3,7 @@ package com.zxzh.kjc.holiday.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
@@ -30,12 +31,23 @@ public class UserController {
 	private SessionService sessionService;
 
 	@RequestMapping(value = "/dologin", method = RequestMethod.GET)
-	public ModelAndView login(HttpServletRequest req, @RequestParam("username") String userName,
+	public ModelAndView login(HttpSession session, @RequestParam("username") String userName,
 			@RequestParam("passwd") String passwd, ModelMap model) {
-		UserEntity user = new UserEntity();
+		UserEntity user = sessionService.getUserInfoFromSession(session);
+		ModelAndView view = null;
+		if (user != null) {
+			// int uId = user.getUserId();
+			// List<EnvocationPojo> vocationList =
+			// vocationRecordService.queryVocationListByUser(uId);
+			// model.addAttribute("userVocation", vocationList);
+			model.addAttribute("userInfo", user);
+			sessionService.userLoginToSession(user, session);
+			view = new ModelAndView("vocationinfo", model);
+		}
+		user = new UserEntity();
 		user.setUserName(userName);
 		user.setPassWord(passwd);
-		ModelAndView view = null;
+		// String view = null;
 		LOGINSTATUS status = userService.userLogin(user);
 		if (status == LOGINSTATUS.SUCESS) {
 			UserEntity userInfo = userService.getIdByuserNameAndPwd(userName, passwd);
@@ -43,14 +55,16 @@ public class UserController {
 			List<EnvocationPojo> vocationList = vocationRecordService.queryVocationListByUser(uId);
 			model.addAttribute("userVocation", vocationList);
 			model.addAttribute("userInfo", userInfo);
-			view = new ModelAndView("/vocationinfo", model);
-			sessionService.getUserInfoFromSession(req);
+			sessionService.userLoginToSession(userInfo, session);
+			view = new ModelAndView("vocationinfo", model);
 		} else if (status == LOGINSTATUS.PASSWDERROR) {
 			model.addAttribute("msg", "密码错误");
 			view = new ModelAndView("/error", model);
+			// view ="/error";
 		} else if (status == LOGINSTATUS.NOUSER) {
 			model.addAttribute("msg", "用户不存在");
 			view = new ModelAndView("/error", model);
+			// view ="error";
 		}
 		return view;
 	}

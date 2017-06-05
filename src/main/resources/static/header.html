@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>假期信息</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link href="bootstrap/css/bootstrap.min.css" type="text/css"
+	rel="stylesheet" />
+<link href="css/signin.css" type="text/css" rel="stylesheet" />
+<script src="bootstrap/js/jquery.min.js" type="text/javascript"></script>
+<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="scripts/vocationInfo.js" type="text/javascript"></script>
+</head>
+<body>
+	<ul class="nav navbar-nav">
+		<li class="dropdown"><a href="#" class="dropdown-toggle"
+			data-toggle="dropdown" th:text="${userInfo.realName}"> Java <b
+				class="caret"></b>
+		</a>
+			<ul class="dropdown-menu">
+				<li><a href="#">我的假单</a></li>
+				<li><a href="#">我的信息</a></li>
+			</ul></li>
+		<li class="active"><a href="#">退出</a></li>
+	</ul>
+</body>
+<script type="text/javascript">
+	$(document).ready(function() {        
+		alert("ok");
+	});
+</script>
+</html>
