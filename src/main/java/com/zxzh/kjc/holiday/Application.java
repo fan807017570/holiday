@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 
-import com.zxzh.kjc.holiday.common.LoginFilter;
+//import com.zxzh.kjc.holiday.common.LoginFilter;
 
 @SpringBootApplication
 @MapperScan("com.zxzh.kjc.holiday.dao")
@@ -17,17 +17,17 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-	@Bean
-	public FilterRegistrationBean filterRegistrationBean() {
-		FilterRegistrationBean register = new FilterRegistrationBean();
-		register.setFilter(sessionFilter());
-		register.addUrlPatterns("/*");
-		return register;
-	}
-
-	@Bean(name = "sessionFilter")
-	public Filter sessionFilter() {
-		// TODO Auto-generated method stub
-		return new LoginFilter();
-	}
+	/*	@Bean
+		public FilterRegistrationBean filterRegistrationBean() {
+			FilterRegistrationBean register = new FilterRegistrationBean();
+			register.setFilter(sessionFilter());
+			register.addUrlPatterns("/*");
+			return register;
+		}
+	
+		@Bean(name = "sessionFilter")
+		public Filter sessionFilter() {
+			// TODO Auto-generated method stub
+			return new LoginFilter();
+		}*/
 }

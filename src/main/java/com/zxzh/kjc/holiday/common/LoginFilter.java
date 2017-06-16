@@ -1,4 +1,4 @@
-package com.zxzh.kjc.holiday.common;
+/*package com.zxzh.kjc.holiday.common;
 
 import java.io.IOException;
 
@@ -57,3 +57,4 @@ public class LoginFilter implements Filter {
 	}
 
 }
+*/

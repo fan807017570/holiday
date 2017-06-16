@@ -9,9 +9,11 @@ import com.zxzh.kjc.holiday.entitiy.pojo.EnvocationPojo;
 
 //@Mapper
 public interface IEnvoationDao {
-	public List<EnvacationEntity> queryVocation(@Param("vocationId") int vId, @Param("userId") int userId);
+	public EnvacationEntity queryVocation(@Param("vocationId") int vId, @Param("userId") int userId);
 
 	public List<EnvacationEntity> queryByUserId(@Param("userId") int uid);
 	
 	public List<EnvocationPojo> queryVocationList(@Param("userId") int uid);
+	
+	public List< EnvacationEntity> getVocationById(@Param("vocationId") int vid);
 }

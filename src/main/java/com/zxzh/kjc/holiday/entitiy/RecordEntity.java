@@ -14,6 +14,8 @@ public class RecordEntity {
 	private Timestamp orderTime;
 	private int status;
 	private Timestamp createTime;
+	private int approverId;
+	private String comment;
 
 	public int getRecordId() {
 		return recordId;
@@ -94,4 +96,21 @@ public class RecordEntity {
 	public void setCreateTime(Timestamp createTime) {
 		this.createTime = createTime;
 	}
+
+	public int getApproverId() {
+		return approverId;
+	}
+
+	public void setApproverId(int approverId) {
+		this.approverId = approverId;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+	
 }

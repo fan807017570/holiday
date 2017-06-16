@@ -3,18 +3,6 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zxzh.kjc.holiday.dao.IRecordDao">
-	<!-- <resultMap type="com.zxzh.kjc.holiday.entitiy.REntity" id="user"> <result 
-		property="userName" column="name" jdbcType="VARCHAR" /> <result property="userId" 
-		column="id" jdbcType="INTEGER" /> <result property="realName" column="name" 
-		jdbcType="VARCHAR" /> <result property="telNumber" column="telnumber" jdbcType="VARCHAR" 
-		/> <result property="idCard" column="idCard" jdbcType="INTEGER" /> <result 
-		property="departmentId" column="department_id" jdbcType="INTEGER" /> <result 
-		property="sex" column="sex" jdbcType="VARCHAR" /> <result property="isMarry" 
-		column="ismarry" jdbcType="INTEGER" /> <result property="isaLive" column="islive_id" 
-		jdbcType="INTEGER" /> <result property="age" column="age" jdbcType="INTEGER" 
-		/> <result property="hireDate" column="hiredate" jdbcType="TIMESTAMP" /> 
-		<result property="location" column="location" jdbcType="INTEGER" /> <result 
-		property="passWord" column="password" jdbcType="INTEGER" /> </resultMap> -->
 	<insert id="addRecord" parameterType="com.zxzh.kjc.holiday.entitiy.RecordEntity">
 		insert into record(
 		userId,
@@ -25,7 +13,8 @@
 		commitTime,
 		orderTime,
 		status,
-		createTime
+		createTime,
+		comment 
 		)
 		values
 		(
@@ -37,7 +26,8 @@
 		#{commitTime},
 		#{orderTime},
 		#{status},
-		now()
+		now(),
+		#{comment}
 		)
 	</insert>
 	<update id="updateStatus">
@@ -45,5 +35,20 @@
 		set status = #{status} 
 		where recordId = #{recordId} 
 	</update>
+	<select id="queryRecordBystatus" parameterType="int" resultType="com.zxzh.kjc.holiday.entitiy.RecordEntity">
+		select 
+		recordId as  recordId,
+		userid as  userId,
+		vid as vid,
+		duration as duration,
+		startDate as start,
+		endDate as end,
+		commitTime as commitTime,
+		orderTime as orderTime,
+		status as status,
+		createTime as createTime,
+		approverId as approverId,
+		comment as comment from record where status=#{status} and userId=#{userId}
+	</select>
 	
 </mapper>

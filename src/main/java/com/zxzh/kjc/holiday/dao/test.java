@@ -13,11 +13,11 @@ public class test {
 	private static long duration = 24 * 60 * 60 * 1000;
 
 	public static void testEnvocationDao() {
-		IEnvoationDao dao = SqlSessionFactoryBuilders.getDaoFromMapper(IEnvoationDao.class);
+	/*	IEnvoationDao dao = SqlSessionFactoryBuilders.getDaoFromMapper(IEnvoationDao.class);
 		List<EnvacationEntity> list = dao.queryVocation(1, 1);
 		for (EnvacationEntity vocation : list) {
 			System.out.println(vocation.getOwnYear());
-		}
+		}*/
 	}
 
 	public static void testIRecordDao() {

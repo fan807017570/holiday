@@ -15,4 +15,8 @@ public interface IRecordDao {
 
 	// 查询假单
 	public RecordEntity queryRecord(int recordId);
+
+	// 根据加单状态查询加单
+	public RecordEntity queryRecordBystatus(@Param("status") int status, @Param("userId") int userId);
+
 }

@@ -31,14 +31,14 @@ public class ViewController {
 
 	@RequestMapping("/test")
 	public String test() {
-		List<EnvacationEntity> envocations = envoationDao.queryVocation(1, 1);
-		System.out.println(envocations.get(0).getOwnYear());
+		EnvacationEntity envocations = envoationDao.queryVocation(1, 1);
+		System.out.println(envocations.getOwnYear());
 		return "hello world!";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login(HttpSession session, ModelMap model) {
-//		HttpSession session = req.getSession();
+		// HttpSession session = req.getSession();
 		UserEntity userInfo = sessionService.getUserInfoFromSession(session);
 		ModelAndView view = null;
 		if (session == null || userInfo == null) {
@@ -48,23 +48,43 @@ public class ViewController {
 			model.addAttribute("userVocation", vocationList);
 			model.addAttribute("userInfo", userInfo);
 			view = new ModelAndView("login", model);
-
 		}
 		return view;
 	}
+
 	@RequestMapping("forwordTo")
-	public ModelAndView forward(UserEntity user,ModelMap model)
-	{
+	public ModelAndView forward(UserEntity user, ModelMap model) {
 		int uId = user.getUserId();
 		List<EnvocationPojo> vocationList = vocationRecordService.queryVocationListByUser(uId);
 		model.addAttribute("userVocation", vocationList);
 		model.addAttribute("userInfo", user);
 		return null;
-		
+
 	}
+
 	@RequestMapping("/forLeave")
-	public ModelAndView forLeave() {
+	public ModelAndView forLeave(ModelMap model) {
 		ModelAndView view = new ModelAndView("forLeave");
+		model.put("userId", 1);
+		return view;
+	}
+	@RequestMapping("/toLeave")
+	public ModelAndView toLeave(ModelMap model) {
+		ModelAndView view = new ModelAndView("toLeave");
+		model.put("userId", 1);
+		return view;
+	}
+
+	@RequestMapping("/vocationList")
+	public ModelAndView vocationList(ModelMap model) {
+		ModelAndView view = new ModelAndView("vocationList");
+		model.put("userId", 1);
+		return view;
+	}
+
+	@RequestMapping("/index")
+	public ModelAndView index() {
+		ModelAndView view = new ModelAndView("index");
 		return view;
 	}
 }

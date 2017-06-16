@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxzh.kjc.holiday.dao.IVocationDao">
+	<select id="getVocationList" parameterType="int" resultType="com.zxzh.kjc.holiday.entitiy.VocationEntity">
+		select 
+			id as vId,
+			name as vname
+		from vacation
+		where
+		id= #{vocationId} 
+	</select>
+</mapper>

@@ -14,6 +14,16 @@
 			<result property="balanceTime" column="balanceTime" />
 		</association>
 	</resultMap>
+	<select id="getVocationById" resultType="com.zxzh.kjc.holiday.entitiy.EnvacationEntity">
+		select
+		userid as userId,
+		vocationid as vocationId,
+		term as term,
+		ownyear as ownYear,
+		balanceTime as balanceTime
+		from envocation
+		where  vocationid=#{vocationId}
+	</select>
 	<select id="queryVocation" resultType="com.zxzh.kjc.holiday.entitiy.EnvacationEntity">
 		select
 		userid as userId,

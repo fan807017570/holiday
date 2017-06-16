@@ -14,19 +14,21 @@
 <body>
 	<ul class="nav navbar-nav">
 		<li class="dropdown"><a href="#" class="dropdown-toggle"
-			data-toggle="dropdown" th:text="${userInfo.realName}"> Java <b
+			data-toggle="dropdown" th:text="${userInfo.realName}">张琼宇<b
 				class="caret"></b>
 		</a>
 			<ul class="dropdown-menu">
-				<li><a href="#">我的假单</a></li>
+				<li><a href="#" id="_myvocation">我的假单</a></li>
 				<li><a href="#">我的信息</a></li>
 			</ul></li>
 		<li class="active"><a href="#">退出</a></li>
 	</ul>
 </body>
 <script type="text/javascript">
-	$(document).ready(function() {        
-		alert("ok");
+	$("#_myvocation").click(function() {
+		$(this).attr("href", "index/vocationList");
+	});
+	$(document).ready(function() {
 	});
 </script>
 </html>

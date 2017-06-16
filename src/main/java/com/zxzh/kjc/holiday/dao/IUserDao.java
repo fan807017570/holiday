@@ -21,5 +21,6 @@ public interface IUserDao {
 
 	// 根据用户的名和用户密码
 	public UserEntity getByNameAndPasswd(@Param("userName") String userName, @Param("passwd") String passwd);
-
+	// 获取管理員列表
+	public List<UserEntity> getAdminList(@Param("roleId") int roleId);
 }

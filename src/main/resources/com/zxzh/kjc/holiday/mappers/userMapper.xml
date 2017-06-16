@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zxzh.kjc.holiday.dao.IUserDao">
 	<resultMap type="com.zxzh.kjc.holiday.entitiy.UserEntity" id="user">
-		<result property="userName" column="name" jdbcType="VARCHAR" />
+		<result property="userName" column="username" jdbcType="VARCHAR" />
 		<result property="userId" column="id" jdbcType="INTEGER" />
 		<result property="realName" column="name" jdbcType="VARCHAR" />
 		<result property="telNumber" column="telnumber" jdbcType="VARCHAR" />
@@ -18,9 +18,8 @@
 		<result property="hireDate" column="hiredate" jdbcType="TIMESTAMP" />
 		<result property="location" column="location" jdbcType="INTEGER" />
 		<result property="passWord" column="password" jdbcType="INTEGER" />
+		<result property="roleId" column="roleId" jdbcType="INTEGER" />
 	</resultMap>
-
-
 	<select id="getUserById" parameterType="int" resultMap="user">
 		select *
 		from employee where id = #{userId}
@@ -35,4 +34,10 @@
 		select * from employee
 		where username = #{userName} and password=#{passwd}
 	</select>
+	<select id="getAdminList" parameterType="int" resultMap="user">
+		select * from employee
+		where roleid=#{roleId}
+	</select>
+	
+	
 </mapper>
