@@ -14,7 +14,8 @@
 		orderTime,
 		status,
 		createTime,
-		comment 
+		comment,
+		approverId
 		)
 		values
 		(
@@ -27,7 +28,8 @@
 		#{orderTime},
 		#{status},
 		now(),
-		#{comment}
+		#{comment},
+		#{approverId}
 		)
 	</insert>
 	<update id="updateStatus">

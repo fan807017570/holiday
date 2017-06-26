@@ -30,10 +30,10 @@ public class ViewController {
 	private IVocationRecordService vocationRecordService;
 
 	@RequestMapping("/test")
-	public String test() {
-		EnvacationEntity envocations = envoationDao.queryVocation(1, 1);
-		System.out.println(envocations.getOwnYear());
-		return "hello world!";
+	public ModelAndView test(ModelMap model) {
+		ModelAndView view = new ModelAndView("test");
+		model.put("userId", 1);
+		return view;
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -68,6 +68,7 @@ public class ViewController {
 		model.put("userId", 1);
 		return view;
 	}
+
 	@RequestMapping("/toLeave")
 	public ModelAndView toLeave(ModelMap model) {
 		ModelAndView view = new ModelAndView("toLeave");

@@ -1,4 +1,4 @@
-package com.zxzh.kjc.holiday.ui;
+/*package com.zxzh.kjc.holiday.ui;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Dialog;
@@ -9,7 +9,7 @@ public class MainFrame extends Dialog {
 	private Shell shell;
 	private Display display;
 	public MainFrame(Shell parent,Display  display) {
-		super(parent);
+		super(parent);a
 		this.shell=parent;
 		this.display=display;
 	}
@@ -46,3 +46,4 @@ public class MainFrame extends Dialog {
 	}
 	
 }
+*/

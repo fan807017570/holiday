@@ -22,7 +22,7 @@ public class Application {
 			FilterRegistrationBean register = new FilterRegistrationBean();
 			register.setFilter(sessionFilter());
 			register.addUrlPatterns("/*");
-			return register;
+			return registe   r;
 		}
 	
 		@Bean(name = "sessionFilter")

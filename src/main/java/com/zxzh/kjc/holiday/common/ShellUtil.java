@@ -1,4 +1,4 @@
-package com.zxzh.kjc.holiday.common;
+/*package com.zxzh.kjc.holiday.common;
 import org.eclipse.swt.widgets.Shell;
 //shell居中显示
 public class ShellUtil {
@@ -17,3 +17,4 @@ public class ShellUtil {
 	}
 
 }
+*/
