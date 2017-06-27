@@ -10,7 +10,7 @@
 			<dataSource type="POOLED">
 				<property name="driver" value="com.mysql.jdbc.Driver" />
 				<property name="url"
-					value="jdbc:mysql://192.168.0.111:3306/holiday?characterEncoding=utf-8" />
+					value="jdbc:mysql://192.168.0.112:3306/holiday?characterEncoding=utf-8" />
 				<property name="username" value="root" />
 				<property name="password" value="fan199055" />
 			</dataSource>
