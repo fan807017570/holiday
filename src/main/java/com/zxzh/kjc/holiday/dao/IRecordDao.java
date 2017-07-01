@@ -1,5 +1,7 @@
 package com.zxzh.kjc.holiday.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -17,6 +19,7 @@ public interface IRecordDao {
 	public RecordEntity queryRecord(int recordId);
 
 	// 根据加单状态查询加单
-	public RecordEntity queryRecordBystatus(@Param("status") int status, @Param("userId") int userId);
-
+	public List<RecordEntity> queryRecordBystatus(@Param("status") int status, @Param("userId") int userId);
+	//根据用户Id和假单的状态查询加单列表
+	public List<RecordEntity> getRecordList(int usrId);
 }

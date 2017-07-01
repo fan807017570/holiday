@@ -11,6 +11,11 @@
 <link href="../bootstrap/css/jquery.easy-pie-chart.css" rel="stylesheet"
 	media="screen" />
 <link href="../bootstrap/css/styles.css" rel="stylesheet" media="screen" />
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
 <script src="../bootstrap/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 <script src="../scripts/vocationInfo.js" type="text/javascript"></script>
 </head>
@@ -56,12 +61,12 @@
 		<div class="row-fluid">
 			<div class="span3" id="sidebar">
 				<ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
-					<li class="active"><a href="../index/index"><i
+					<li><a href="../index/index"><i
 							class="icon-chevron-right"></i> 用户享有假期</a></li>
 					<li><a href="../index/toLeave.html"><i
 							class="icon-chevron-right"></i> 请假申请</a></li>
-					<li><a href="../index/myLeaveList"><i
-							class="icon-chevron-right"></i> 我的假单</a></li>
+					<li class="active"><a href="../index/myLeaveList"><i class="icon-chevron-right"></i>
+							我的假单</a></li>
 				</ul>
 			</div>
 
@@ -73,9 +78,9 @@
 					<div class="block">
 						<div class="navbar navbar-inner block-header">
 							<div class="muted pull-left">您享有的假期</div>
-							<!-- <div class="pull-right">
+							<div class="pull-right">
 								<span class="badge badge-warning">查看更多</span>
-							</div> -->
+							</div>
 						</div>
 						<div class="block-content collapse in">
 							<div class="block-content collapse in">
@@ -83,25 +88,22 @@
 									<table class="table table-condensed">
 										<thead>
 											<tr>
-												<th>假期Id</th>
-												<th>假期类型</th>
-												<th>假期天数</th>
-												<th>已休天数</th>
-												<th>结余天数</th>
-												<th>操作</th>
+												<th>假期类别</th>
+												<th>开始时间</th>
+												<th>结束时间</th>
+												<th>请假时长</th>
+												<th>假单状态</th>
+												<th>审批人</th>
 											</tr>
 										</thead>
 										<tbody>
-											<tr th:each="vocation: ${userVocation}" class="vocation_row">
-												<td th:text="${vocation.envocation.vocationId}"></td>
-												<td th:text="${vocation.envocation.userId}"
-													style="display: none"></td>
-												<td th:text="${vocation.vocationName}"></td>
-												<td th:text="${vocation.envocation.term}"></td>
-												<td th:text="${vocation.envocation.balanceTime}"></td>
-												<td
-													th:text="${vocation.envocation.term}-${vocation.envocation.balanceTime}"></td>
-												<td name="fananran"><a href="#" class="forLeave">去请假</a></td>
+											<tr th:each="record: ${recordPojoList}" class="vocation_row">
+												<td th:text="${record.vocationName}"></td>
+												<td th:text="${record.startTime}"></td>
+												<td th:text="${record.endTime}"></td>
+												<td th:text="${record.interval}"></td>
+												<td th:text="${record.status}"></td>
+												<td th:text="${record.approvalName}"></td>
 											</tr>
 
 										</tbody>

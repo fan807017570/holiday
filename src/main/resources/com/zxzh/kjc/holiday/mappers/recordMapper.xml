@@ -33,14 +33,36 @@
 		)
 	</insert>
 	<update id="updateStatus">
-		update record 
-		set status = #{status} 
-		where recordId = #{recordId} 
+		update record
+		set status = #{status}
+		where recordId =
+		#{recordId}
 	</update>
-	<select id="queryRecordBystatus" parameterType="int" resultType="com.zxzh.kjc.holiday.entitiy.RecordEntity">
-		select 
-		recordId as  recordId,
-		userid as  userId,
+	<select id="queryRecordBystatus" parameterType="int"
+		resultType="com.zxzh.kjc.holiday.entitiy.RecordEntity">
+		select
+		recordId as recordId,
+		userid as userId,
+		vid as vid,
+		duration as duration,
+		startDate as start,
+		endDate as end,
+		commitTime as
+		commitTime,
+		orderTime
+		as orderTime,
+		status as status,
+		createTime as
+		createTime,
+		approverId as
+		approverId,
+		comment as comment from record
+		where userId=#{userId}
+	</select>
+	<select id="getRecordList" resultType="com.zxzh.kjc.holiday.entitiy.RecordEntity">
+		select
+		recordId as recordId,
+		userid as userId,
 		vid as vid,
 		duration as duration,
 		startDate as start,
@@ -50,7 +72,8 @@
 		status as status,
 		createTime as createTime,
 		approverId as approverId,
-		comment as comment from record where status=#{status} and userId=#{userId}
+		comment as comment
+		from record where userId=#{userId} order by status
 	</select>
-	
+
 </mapper>

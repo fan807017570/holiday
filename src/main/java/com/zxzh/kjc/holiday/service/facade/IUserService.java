@@ -16,4 +16,5 @@ public interface IUserService {
 	public String getRoleName(int userId);
 	//获取管理员列表
 	public  List<UserEntity> getAdminList(int roleId);
+	//
 }

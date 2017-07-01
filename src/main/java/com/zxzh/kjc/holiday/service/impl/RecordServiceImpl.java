@@ -1,5 +1,7 @@
 package com.zxzh.kjc.holiday.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -22,6 +24,13 @@ public class RecordServiceImpl implements IRecordService {
 			return ret;
 		}
 
+	}
+
+	@Override
+	public List<RecordEntity> getRecordListByUser(int userId) {
+		// TODO Auto-generated method stub
+		List<RecordEntity> recordList=recordDao.getRecordList(userId);
+		return recordList;
 	}
 
 }

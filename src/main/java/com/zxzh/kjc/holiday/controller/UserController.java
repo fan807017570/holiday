@@ -2,6 +2,7 @@ package com.zxzh.kjc.holiday.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,8 +42,9 @@ public class UserController {
 	private IEnvoationDao envocationDao;
 
 	@RequestMapping(value = "/dologin", method = RequestMethod.GET)
-	public ModelAndView login(HttpSession session, @RequestParam("username") String userName,
+	public ModelAndView login(HttpServletRequest req, @RequestParam("username") String userName,
 			@RequestParam("passwd") String passwd, ModelMap model) {
+		HttpSession session=req.getSession();
 		UserEntity user = sessionService.getUserInfoFromSession(session);
 		ModelAndView view = null;
 		if (user != null) {
@@ -63,7 +65,7 @@ public class UserController {
 			int uId = userInfo.getUserId();
 			List<EnvocationPojo> vocationList = vocationRecordService.queryVocationListByUser(uId);
 			model.addAttribute("userVocation", vocationList);
-			model.addAttribute("userInfo", userInfo);
+			model.addAttribute("userInfo", userInfo); 
 			sessionService.userLoginToSession(userInfo, session);
 			view = new ModelAndView("index", model);
 		} else if (status == LOGINSTATUS.PASSWDERROR) {
